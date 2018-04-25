@@ -11,5 +11,7 @@ class Artist
     @name = options["name"]
   end
 
-  
+  def save()
+
+  end
 end
