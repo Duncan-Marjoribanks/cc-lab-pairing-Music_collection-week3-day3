@@ -19,6 +19,15 @@ class Artist
     @id = result.first["id"].to_i
   end
 
+  def self.find(id)
+    sql = "SELECT * FROM artists WHERE id = $1"
+    values = [id]
+    results = SqlRunner.run(sql, values)
+    artist_hash = results.first
+    artist = Artist.new(artist_hash)
+    return artist
+  end
+
   def albums()
     sql = "SELECT * FROM albums WHERE artist_id = $1"
     values = [@id]
@@ -44,5 +53,7 @@ class Artist
     values = [@name, @id]
     results = SqlRunner.run(sql, values)
   end
+
+
 
 end
