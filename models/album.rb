@@ -4,7 +4,7 @@ require_relative('artist')
 
 class Album
 
-  attr_accessor :title :genre :artist_id
+  attr_accessor :title, :genre, :artist_id
   attr_reader :id
 
   def initialize(options)
